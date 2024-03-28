@@ -19,6 +19,8 @@ D2S stands for Databricks DataShift Shuttle. It's a versatile data transfer solu
 * Keeps track of file details, number of records present, source-destination details etc.
 * Receive an email notification with comprehensive details and status of process run once it's finished
 
+User Guide: https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/3117515145466176/2105701564358663/2802065411328882/latest.html
+
 #### In a nutshell, D2S brings in a robust Data Governance perspective to your data team providing you a complete view of a Dataset journey details including:
 * Which Dataset?  : Track identity of Dataset & number of records present in it
 * What Time?      : Track timestamps at which data got processed
