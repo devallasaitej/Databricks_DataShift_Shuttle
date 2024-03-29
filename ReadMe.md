@@ -105,19 +105,19 @@ Functionality: Transfers files between S3 Buckets
   * Just path to directory: S3://bucket-name/prefix/ 
 * Notification Recipeints: Multiple email ids separated with ',' are allowed.
 
-DB - DB
-Notebook / Service name: DB-DB
+#### DB - DB
+Notebook / Service name:  DB-DB
 Functionality: Transfers data between database tables. Can be within same database or different database
 
-Notebook Widgets Input guide
-Source DB: Source database type, can be selected from dropdown.
-Source DB Access: Valid DB access name defined in configs notebook.
-Source DB Table: Target table name with pattern: schema.table_name
-DML : SQL query can be input to get required data. If left blank, SELECT * FROM Source DB Table will be used
-Target DB: Target database type, can be selected from dropdown
-Target DB Access: Valid DB access name defined in configs notebook
-Target DB Table: Target table name with pattern: schema.table_name
-Load Type: Append mode by default, can be changed to Overwrite using dropdown option
-Notification Recipeints: Multiple email ids separated with ',' are allowed.
+##### Notebook Widgets Input guide
+* Source DB: Source database type, can be selected from dropdown.
+* Source DB Access: Valid DB access name defined in configs notebook.
+* Source DB Table: Target table name with pattern: schema.table_name
+* DML : SQL query can be input to get required data. If left blank, SELECT * FROM Source DB Table will be used
+* Target DB: Target database type, can be selected from dropdown
+* Target DB Access: Valid DB access name defined in configs notebook
+* Target DB Table: Target table name with pattern: schema.table_name
+* Load Type: Append mode by default, can be changed to Overwrite using dropdown option
+* Notification Recipeints: Multiple email ids separated with ',' are allowed.
 
 User Guide: https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/3117515145466176/2105701564358663/2802065411328882/latest.html
