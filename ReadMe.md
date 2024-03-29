@@ -25,4 +25,99 @@ D2S stands for Databricks DataShift Shuttle. It's a versatile data transfer solu
 * Where to Where? : Track source and destination of dataset
 * Who?: Track who is sending out & receiving in data
 
+## User Guide
+#### S3 - Relational Databases
+Notebook / Service name:  S3-DB
+Functionality: Reads files from AWS S3 and loads into Relational Database table
+
+##### Notebook Widgets Input guide:
+* Source_S3_Access : Valid S3 access name defined in configs notebook.
+* Source_S3_File_Path : File path at S3 location which needs to be processed.
+* Allowed input patterns for Source_S3_File_Path:
+  * Exact S3 file path can be provided : s3://bucket-name/prefix/filename
+  * Name Pattern with date : s3://bucket-name/prefix/filename_yyyymmdd.format [File with latest date will be selected]
+  * Name pattern with datetime: s3://bucket-name/prefix/filename_yyyymmddHHMMSS.format [File with latest timestamp will be selected]
+  * Just path to directory: S3://bucket-name/prefix/   [Note: All files present in directory will be processed in this case]
+* Header Row: True by default, can be changed to False using dropdown option
+* Load Type: Append mode by default, can be changed to Overwrite using dropdown option
+* Target DB: Target database type, can be selected from dropdown
+* Target DB Access: Valid DB access name defined in configs notebook
+* Target DB Table: Target table name with pattern: schema.table_name
+* Notification Recipeints: Multiple email ids separated with ',' are allowed.
+
+#### Relational Databases - S3
+Notebook / Service name:  DB-S3
+Functionality: Reads data from Relational Database table and writes file to AWS S3 bucket
+
+##### Notebook Widgets Input guide
+* Source DB: Source database type, can be selected from dropdown.
+* Source DB Access: Valid DB access name defined in configs notebook.
+* Source DB Table: Target table name with pattern: schema.table_name
+* DML : SQL query can be input to get required data. If left blank, SELECT * FROM Source DB Table will be used
+* Target_S3_Access : Valid S3 access name defined in configs notebook.
+* Target_S3_File_Path : File path at destination S3 bucket.
+* Allowed input patterns for Target_S3_File_Path:
+  * Exact S3 file path can be provided : s3://bucket-name/prefix/filename
+  * Name Pattern with date : s3://bucket-name/prefix/filename_yyyymmdd.format [File with latest date will be selected]
+  * Name pattern with datetime: s3://bucket-name/prefix/filename_yyyymmddHHMMSS.format [File with latest timestamp will be selected]
+  * Just path to directory: S3://bucket-name/prefix/ [In this case, table_name_yyyymmddhhmmss.csv will be used as final file name]
+* Target Delimiter: ',' will be used as default in final file
+* Notification Recipeints: Multiple email ids separated with ',' are allowed.
+
+#### SFTP - S3
+Notebook / Service name:  SFTP-S3
+Functionality: Transfers files from SFTP Server to AWS S3 bucket
+
+##### Notebook Widgets Input guide
+* Source SFTP Access: Valid SFTP access name defined in configs notebook.
+* Source_SFTP_File_Path : File path in SFTP Server.
+* Allowed input patterns for Source_SFTP_File_Path:
+  * Exact SFTP file path can be provided : /Home/Dir-1/Dir-2/filename
+  * Name Pattern with date : /Home/Dir-1/Dir-2/filename_yyyymmdd.format [File with latest date will be selected]
+  * Name pattern with datetime: /Home/Dir-1/Dir-2/filename_yyyymmddHHMMSS.format [File with latest timestamp will be selected]
+  * Just path to directory: /Home/Dir-1/Dir-2/ [Note: All files present in directory will be processed to a single file in this case]
+* Target_S3_Access : Valid S3 access name defined in configs notebook.
+* Target_S3_File_Path : File path at destination S3 bucket.
+* Allowed input patterns for Target_S3_File_Path:
+  * Exact S3 file path can be provided : s3://bucket-name/prefix/filename
+  * Name Pattern with date : s3://bucket-name/prefix/filename_yyyymmdd.format
+  * Name pattern with datetime: s3://bucket-name/prefix/filename_yyyymmddHHMMSS.format
+* Notification Recipeints: Multiple email ids separated with ',' are allowed.
+
+#### S3 - S3
+Notebook / Service name:  S3-S3
+Functionality: Transfers files between S3 Buckets
+
+##### Notebook Widgets Input guide
+* Source_S3_Access : Valid S3 access name defined in configs notebook.
+* Source_S3_File_Path : File path at S3 location which needs to be processed.
+* Allowed input patterns for Source_S3_File_Path:
+  * Exact S3 file path can be provided : s3://bucket-name/prefix/filename
+  * Name Pattern with date : s3://bucket-name/prefix/filename_yyyymmdd.format [File with latest date will be selected]
+  * Name pattern with datetime: s3://bucket-name/prefix/filename_yyyymmddHHMMSS.format [File with latest timestamp will be selected]
+  * Just path to directory: S3://bucket-name/prefix/   [Note: All files present in directory will be processed in this case]
+* Target_S3_Access : Valid S3 access name defined in configs notebook.
+* Target_S3_File_Path : File path at destination S3 bucket.
+* Allowed input patterns for Target_S3_File_Path:
+  * Exact S3 file path can be provided : s3://bucket-name/prefix/filename
+  * Name Pattern with date : s3://bucket-name/prefix/filename_yyyymmdd.format [File with latest date will be selected]
+  * Name pattern with datetime: s3://bucket-name/prefix/filename_yyyymmddHHMMSS.format [File with latest timestamp will be selected]
+  * Just path to directory: S3://bucket-name/prefix/ 
+* Notification Recipeints: Multiple email ids separated with ',' are allowed.
+
+DB - DB
+Notebook / Service name: DB-DB
+Functionality: Transfers data between database tables. Can be within same database or different database
+
+Notebook Widgets Input guide
+Source DB: Source database type, can be selected from dropdown.
+Source DB Access: Valid DB access name defined in configs notebook.
+Source DB Table: Target table name with pattern: schema.table_name
+DML : SQL query can be input to get required data. If left blank, SELECT * FROM Source DB Table will be used
+Target DB: Target database type, can be selected from dropdown
+Target DB Access: Valid DB access name defined in configs notebook
+Target DB Table: Target table name with pattern: schema.table_name
+Load Type: Append mode by default, can be changed to Overwrite using dropdown option
+Notification Recipeints: Multiple email ids separated with ',' are allowed.
+
 User Guide: https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/3117515145466176/2105701564358663/2802065411328882/latest.html
