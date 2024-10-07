@@ -58,8 +58,8 @@ Functionality: Reads data from Relational Database table and writes file to AWS 
 * Target_S3_File_Path : File path at destination S3 bucket.
 * Allowed input patterns for Target_S3_File_Path:
   * Exact S3 file path can be provided : s3://bucket-name/prefix/filename
-  * Name Pattern with date : s3://bucket-name/prefix/filename_yyyymmdd.format [File with latest date will be selected]
-  * Name pattern with datetime: s3://bucket-name/prefix/filename_yyyymmddHHMMSS.format [File with latest timestamp will be selected]
+  * Name Pattern with date : s3://bucket-name/prefix/filename_yyyymmdd.format
+  * Name pattern with datetime: s3://bucket-name/prefix/filename_yyyymmddHHMMSS.format 
   * Just path to directory: S3://bucket-name/prefix/ [In this case, table_name_yyyymmddhhmmss.csv will be used as final file name]
 * Target Delimiter: ',' will be used as default in final file
 * Notification Recipeints: Multiple email ids separated with ',' are allowed.
@@ -100,8 +100,8 @@ Functionality: Transfers files between S3 Buckets
 * Target_S3_File_Path : File path at destination S3 bucket.
 * Allowed input patterns for Target_S3_File_Path:
   * Exact S3 file path can be provided : s3://bucket-name/prefix/filename
-  * Name Pattern with date : s3://bucket-name/prefix/filename_yyyymmdd.format [File with latest date will be selected]
-  * Name pattern with datetime: s3://bucket-name/prefix/filename_yyyymmddHHMMSS.format [File with latest timestamp will be selected]
+  * Name Pattern with date : s3://bucket-name/prefix/filename_yyyymmdd.format 
+  * Name pattern with datetime: s3://bucket-name/prefix/filename_yyyymmddHHMMSS.format 
   * Just path to directory: S3://bucket-name/prefix/ 
 * Notification Recipeints: Multiple email ids separated with ',' are allowed.
 
